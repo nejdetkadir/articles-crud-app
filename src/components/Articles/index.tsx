@@ -4,7 +4,7 @@ import List from './List';
 import New from './New';
 import Edit from './Edit';
 import Show from './Show';
-import ArticleType from '../../types/ArticleType';
+import { ArticleType } from '../../types/ArticleType';
 
 const Index: React.FC = () => {
   const [articles, setArticles] = useState<ArticleType[]>([]);
@@ -14,7 +14,7 @@ const Index: React.FC = () => {
       <Route path='/'>
         <Route
           index
-          element={<List articles={articles} />} />
+          element={<List articles={articles} setArticles={setArticles} />} />
         <Route
           path='/new'
           element={<New articles={articles} setArticles={setArticles} />} />

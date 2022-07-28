@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ArticleType from '../../../types/ArticleType';
+import { ArticleType } from '../../../types/ArticleType';
 import { useParams } from 'react-router-dom';
 
 const Index: React.FC = () => {
