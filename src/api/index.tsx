@@ -1,16 +1,15 @@
 import axios from "axios";
-import { ArticleFormType, ArticleType, ArticleResponseType } from "../types/ArticleType";
+import { ArticleFormType, ArticleResponseType } from "../types/ArticleType";
 
 axios.defaults.baseURL = 'https://fe-article-api.herokuapp.com';
 axios.defaults.headers.common['Content-Type'] = 'application/json';
-
 
 export const getArticles = async () : Promise<ArticleResponseType> => {
   const response = await axios.get('/articles');
   return { data: response.data, status: response.status }
 }
 
-export const getArticle = async (id: string) => {
+export const getArticle = async (id: string | undefined) => {
   const response = await axios.get(`/articles/${id}`);
   return { data: response.data, status: response.status }
 }
@@ -20,7 +19,7 @@ export const createArticle = async (article: ArticleFormType) : Promise<ArticleR
   return { data: response.data, status: response.status }
 }
 
-export const updateArticle = async (id: string, article: ArticleFormType) : Promise<ArticleResponseType> => {
+export const updateArticle = async (id: string | undefined, article: ArticleFormType) : Promise<ArticleResponseType> => {
   const response = await axios.patch(`/articles/${id}`, article);
   return { data: response.data, status: response.status }
 }
